@@ -8,7 +8,7 @@ const gpioController = new GpioController();
 
 const gpioRouter = Router();
 
-gpioRouter.use(gpioPortValidation);
+gpioRouter.param('port', gpioPortValidation);
 
 gpioRouter.get('/:port', gpioController.index);
 

@@ -12,6 +12,7 @@ export default class OpenPortService {
   public async execute({ port }: IRequest): Promise<0 | 1> {
     return this.gpio.read(port, (readingError, value) => {
       if (readingError) {
+        console.log(readingError);
         throw new AppError('Error when reading GPIO pin value.', 500);
       }
       return value;

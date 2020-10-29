@@ -11,6 +11,8 @@ export default function ensureAuthenticated(
 ): void {
   const { port } = request.params;
 
+  console.log(port);
+
   if (!gpioPorts.includes(parseInt(port, 10))) {
     throw new AppError('Invalid GPIO port.', 400);
   } else return next();
